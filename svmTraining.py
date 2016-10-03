@@ -8,7 +8,7 @@ import glob
 import re
 import random
 import pandas as pd
-from skimage.transform import resize 
+from skimage.transform import resize
 
 
 
@@ -28,7 +28,7 @@ def readLabelsFile(labelFile):
 	labels = []
 	with open(labelFile, 'r') as f:
 		for line in f:
-			labels.append(line.strip().split(','))	
+			labels.append(line.strip().split(','))
 	labels = labels[1:len(labels)] # Remove header line
 	return labels
 
@@ -39,7 +39,7 @@ def readImageGreyscale(filename):
 
 
 labelFile = '/media/3d352c20-c87e-44a3-8c27-e48382c61c7b/kaggle/trainLabels.csv'
-labelsArr = readLabelsFile(labelFile)	
+labelsArr = readLabelsFile(labelFile)
 
 
 
@@ -84,8 +84,8 @@ for i in range(0,totalImages):
 
 
 
-for i in range
-readImageGreyscale()
+for i in range:
+	readImageGreyscale()
 
 
 
@@ -177,7 +177,3 @@ testImageArrPrep = prepareImageForSVM(testImageArr)
 clf = svm.SVR()
 clf.fit(imageMultiArr.T, list(df['level'][1:10]))
 clf.predict(testImageArrPrep.T)
-
-
-
-

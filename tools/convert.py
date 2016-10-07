@@ -12,7 +12,6 @@ from PIL import Image, ImageFilter
 
 from converter import adaptive_convert, max_convert, otsu_convert, li_convert
 
-N_PROC = 4
 
 def get_destination_fname(fname, extension, destination):
     basename = os.path.splitext(os.path.basename(fname))[0]
@@ -42,7 +41,9 @@ def should_convert(filename):
               help='Whether to stretch the cropped image or pad with black')
 @click.option('--extension', default='tiff', show_default=True,
               help='Filetype of converted images.')
-def main(source, destination, method, crop_size, stretch, extension):
+@click.option('--processors', default=4, show_default=True,
+              help='Number of processors.')
+def main(source, destination, method, crop_size, stretch, extension, processors):
     try:
         os.makedirs(destination)
     except OSError:
@@ -74,9 +75,9 @@ def main(source, destination, method, crop_size, stretch, extension):
 
     n = len(filenames)
     # process in batches, sometimes weird things happen with Pool on my machine
-    batchsize = 5
+    batchsize = 100
     batches = (n + batchsize - 1) // batchsize
-    pool = Pool(N_PROC)
+    pool = Pool(processors)
 
     args = []
 

@@ -1,6 +1,7 @@
 # Custom
 *.gz
 train_samples/
+converted-max/
 .DS_Store
 
 # Byte-compiled / optimized / DLL files

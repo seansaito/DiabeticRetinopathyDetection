@@ -3,6 +3,8 @@
 train_samples/
 converted-max/
 .DS_Store
+max-cropped/
+max-stretched/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

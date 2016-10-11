@@ -13,19 +13,25 @@ def log(text):
     print text
 
 # load the images
-directory = "max-cropped"
-images = [Image.open(directory + "/" + f) for f in os.listdir(directory)]
+# directory = "max-cropped"
+# images = [Image.open(directory + "/" + f) for f in os.listdir(directory)]
+#
+# X = np.array([np.array(im) for im in images])
+#
+# # Groundtruths
+# f_names = [f.split(".")[0] for f in os.listdir(directory)]
+# fp = open("trainLabels.csv")
+# reader = csv.DictReader(fp)
+# label_store = {row["image"]: row["level"] for row in reader}
+# fp.close()
+#
+# y = np.array([int(label_store[f]) for f in f_names])
+#
+# np.save("X.npy", X)
+# np.save("y.npy", y)
 
-X = np.array([np.array(im) for im in images])
-
-# Groundtruths
-f_names = [f.split(".")[0] for f in os.listdir(directory)]
-fp = open("trainLabels.csv")
-reader = csv.DictReader(fp)
-label_store = {row["image"]: row["level"] for row in reader}
-fp.close()
-
-y = np.array([int(label_store[f]) for f in f_names])
+X = np.load("X.npy")
+y = np.load("y.npy")
 
 X, X_test, y, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
 

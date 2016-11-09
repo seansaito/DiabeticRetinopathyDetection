@@ -10,7 +10,7 @@
 database) to keep data. This way, we don't have to load all examples into memory and
 potentially crash the computer.
 
-* Change the directories in lmdb_generator.py (the lines located at the top of the
+* Change the directories in `lmdb_generator.py` (the lines located at the top of the
 script) to point to the training image, training labels, testing images, and teesting labels.
 
 * Run `python lmdb_generator.py`. This will generate two lmdbs, namely

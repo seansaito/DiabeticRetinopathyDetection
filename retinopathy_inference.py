@@ -109,7 +109,7 @@ groups = group_adjacent(fnames, 10)
 import datetime
 # Logging
 def log(text, fp=None):
-    text = '[%s] [Hollywood Inference] %s' % (str(datetime.datetime.now()), text)
+    text = '[%s] [Retinopathy Inference] %s' % (str(datetime.datetime.now()), text)
 
     if fp is not None:
         fp.write(text)

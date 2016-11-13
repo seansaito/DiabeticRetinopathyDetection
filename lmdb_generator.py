@@ -27,6 +27,20 @@ print "Done reading labels"
 train_image_f = os.listdir(train_dir)
 test_image_f = os.listdir(test_dir)
 
+# We want to balance out the data
+num_above_zero = len([_, label for _, label in train_labels if int(label) != 0])
+
+# zeros
+zeros = [fname for fname in train_image_f if train_labels[fname.split(".")[0]] == 0]
+
+# Now remove
+for i in range(len(zeros) - num_above_zero):
+    f = np.random.choice(zeros, 1)
+    train_image_f.remove(f)
+
+# Distribution
+print np.bincount([train_labels[fname.split(".")[0]] for fname in train_image_f])
+
 # Now create the lmdbs
 def write_to_lmdb(lmdb_name, fnames, dir, labels=None, write_label=True):
 	print "Writing lmdb %s" % lmdb_name
@@ -54,4 +68,4 @@ def write_to_lmdb(lmdb_name, fnames, dir, labels=None, write_label=True):
 	print "Done writing %i entries to lmdb" % len(fnames)
 
 write_to_lmdb("max_cropped_rotated_train_lmdb", train_image_f, train_dir, train_labels)
-write_to_lmdb("max_cropped_rotated_test_lmdb", test_image_f, test_dir, test_labels)
+# write_to_lmdb("max_cropped_rotated_test_lmdb", test_image_f, test_dir, test_labels)

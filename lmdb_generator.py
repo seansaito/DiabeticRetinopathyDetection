@@ -28,18 +28,25 @@ train_image_f = os.listdir(train_dir)
 test_image_f = os.listdir(test_dir)
 
 # We want to balance out the data
-num_above_zero = len([_, label for _, label in train_labels if int(label) != 0])
+num_above_zero = len([label for label in train_labels.values() if int(label) != 0])
+non_zeros = []
 
-# zeros
-zeros = [fname for fname in train_image_f if train_labels[fname.split(".")[0]] == 0]
+print len(train_image_f)
+zeros = []
+for fname in train_image_f:
+    without_extension = fname.split(".")[0]
+    if len(without_extension.split("_")) > 2:
+        without_extension = "_".join(without_extension.split("_")[:2])
+    if train_labels[without_extension] == 0:
+        zeros.append(fname)
+    else:
+        non_zeros.append(fname)
 
-# Now remove
-for i in range(len(zeros) - num_above_zero):
-    f = np.random.choice(zeros, 1)
-    train_image_f.remove(f)
-
-# Distribution
-print np.bincount([train_labels[fname.split(".")[0]] for fname in train_image_f])
+print len(non_zeros)
+print len(zeros)
+sample = list(np.random.choice(zeros, len(non_zeros)))
+train_image_f = sample + non_zeros
+print len(train_image_f)
 
 # Now create the lmdbs
 def write_to_lmdb(lmdb_name, fnames, dir, labels=None, write_label=True):

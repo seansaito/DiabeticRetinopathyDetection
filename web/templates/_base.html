@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Diabetic Retinopathy Detection</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/css/app.css"/>
+  </head>
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header"><a href="/" class="navbar-brand">Diabetic Retinopathy Detection</a></div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Detect</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <script src='/static/lib/jquery/jquery.js'></script>
+    <script src='/static/lib/bootstrap/js/bootstrap.js'></script>
+    <script src='/static/js/app.js'></script>
+  </body>
+</html>

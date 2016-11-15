@@ -1,0 +1,48 @@
+.about-page {
+  padding: 10px;
+}
+
+.detection {
+  text-align: center;
+}
+
+.detection img {
+  height: 256px;
+  width: 256px;
+  margin: 10px;
+}
+
+.detection .result {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.homepage {
+  text-align: center;
+}
+
+.homepage .file-input {
+  max-width: 360px;
+  margin: 10px auto;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

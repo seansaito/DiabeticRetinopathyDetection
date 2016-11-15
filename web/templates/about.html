@@ -1,0 +1,40 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  <div class="about-page">
+    <h2>The Goal</h2>
+    <p>
+      This is our class project for CS5340 - Uncertainty modeling in AI.
+    </p>
+    <p>
+      Our goal for this project is to be able to automatically detect diabetic retinopathy using retinopathic images. On this site, it's possible to upload images and automatically rate them for diabetic retinopathy. The possible results are:
+    </p>
+    <ul>
+      <li>0 - No Diabetic Retinopathy</li>
+      <li>1 - Mild Diabetic Retinopathy</li>
+      <li>2 - Moderate Diabetic Retinopathy</li>
+      <li>3 - Severe Diabetic Retinopathy</li>
+      <li>4 - Proliferative Diabetic Retinopathy</li>
+    </ul>
+    <h2>The Team</h2>
+    <ul>
+      <li>Sean Saito</li>
+      <li>Tan Kar Tong</li>
+      <li>Payton Yao</li>
+    </ul>
+    <h2>Diabetic Retinopathy</h2>
+    <p>
+      Diabetic retinopathy (DR) is a disease associated with long-standing diabetes and is the leading cause of blindness among the working population in the developed world, with as many as 93 million people affected worldwide. Without prompt diagnosis and proper intervention, DR would eventually lead to vision impairment of the affected individual.
+    </p>
+    <p>
+      Currently, diagnosis of DR is made by clinicians who are trained to identify DR from digital photographs of the retina. However, this process requires extensive expertise of skilled personnels. In addition, manual diagnosis by clinicians has a significant lag time of 1-2 days, by which time it is difficult to get patients to promptly follow up with the treatment. There is thus a critical need to create an accurate and automated DR detection system which would allow for the diagnosis of DR with minimal resources. In this project, we sought to address this problem by building an automated detection system of DR from digital images of the retina.
+    </p>
+    <h2>Methodology</h2>
+    <p>
+      To create our models, we used the retinopathic images from a recent competition on Kaggle on <a href="https://www.kaggle.com/c/diabetic-retinopathy-detection">Diabetic Retinopathy</a> which has been properly staged and assessed by a group of physicians. The overall dataset consists of 44351 * 2 = 88702 retinal images (1 pair of image for each individual) of normal individuals and patients with 4 different stages of diabetic retinopathy with increasing level of severity.
+    </p>
+    <p>
+      More details on the preprocessing methods and the models we trained are available in our report.
+    </p>
+  </div>
+{% endblock %}

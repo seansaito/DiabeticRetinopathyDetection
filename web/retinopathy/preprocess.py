@@ -2,10 +2,6 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 
-def compute_score(cropped_img):
-    return 0
-
-
 def bbox_from_threshold_array(img, array):
     bbox = Image.fromarray(array).getbbox()
     if bbox == (0, 0, img.width, img.height):

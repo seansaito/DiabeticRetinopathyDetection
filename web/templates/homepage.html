@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  <div class="homepage">
+    <div class="form-area">
+      <h2>Upload an Image</h2>
+      <form action="/detection" method="post" enctype="multipart/form-data">
+        <div class="input-group file-input">
+          <input type="text" class="form-control" readonly>
+          <label class="input-group-btn">
+            <span class="btn btn-primary">
+              Browse&hellip; <input type="file" name="image" id="image" style="display: none;">
+            </span>
+          </label>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Upload Image" name="submit">
+      </form>
+    </div>
+  </div>
+{% endblock %}

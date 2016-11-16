@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  <div class="detection">
+    <h2>Cropped Image</h2>
+    <img class="cropped" src="data:image/jpg;base64,{{img_data}}"></img>
+    <div class="result">Result: {{ score }}</div>
+    <a href="/">
+      <button class="btn btn-lg btn-primary">Go Back</button>
+    </a>
+  </div>
+{% endblock %}

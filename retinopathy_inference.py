@@ -31,10 +31,10 @@ print img.shape
 
 # Change this to the name of the deploy prototxt file. For example, if you are using alexnet, then put
 # deploy_alexnet.prototxt
-model = "deploy_alexnet.prototxt"
+model = "../lenet_deploy.prototxt"
 
 # This shoud point to the corresponding caffemodel in results/
-weights = "../alexnet/alexnet_iter_2000.caffemodel"
+weights = "../lenet/lenet_iter_2000.caffemodel"
 
 # Sets up the network
 net = caffe.Net(str(model), str(weights), caffe.TEST)
@@ -105,7 +105,7 @@ groups = group_adjacent(fnames, 10)
         
 # Write predictions to a CSV so that we can get the kappa score
 # The CSV has the following columns: image (image name), prediction, label (taken from trainLabels.csv)
-with open("predictions.csv", "w") as fp:
+with open("lenet_predictions.csv", "w") as fp:
     fieldnames = ["image", "prediction", "label"]
     writer = csv.DictWriter(fp, fieldnames=fieldnames)
     
@@ -130,7 +130,7 @@ with open("predictions.csv", "w") as fp:
 
 # In[2]:
 
-get_ipython().system(u'jupyter nbconvert --to script "Retinopathy Inference.ipynb"')
+# get_ipython().system(u'jupyter nbconvert --to script "Retinopathy Inference.ipynb"')
 
 
 # In[ ]:

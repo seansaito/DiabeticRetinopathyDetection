@@ -26,6 +26,11 @@
   margin: 10px auto;
 }
 
+.homepage .model-input {
+  max-width: 360px;
+  margin: 10px auto;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;

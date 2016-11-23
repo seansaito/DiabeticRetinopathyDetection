@@ -22,10 +22,11 @@ def home():
 
 @app.route('/detection', methods=['POST'])
 def detection():
+    model = request.form['model']
     file = request.files['image']
     img = Image.open(file)
     cropped = max_convert(img, 512, stretch=False)
-    score = compute_score(cropped)
+    score = compute_score(model, cropped)
     score_words = {
         0: "0 - No Diabetic Retinopathy",
         1: "1 - Mild Diabetic Retinopathy",
@@ -44,4 +45,4 @@ def about():
 
 if __name__ == '__main__':
     app.config['DEBUG'] = True
-    app.run()
+    app.run(host='0.0.0.0')

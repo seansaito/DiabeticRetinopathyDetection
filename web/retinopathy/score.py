@@ -1,29 +1,10 @@
-import caffe
-import numpy as np
-from PIL import Image
-
-MODEL_FILE = "models/deploy_alexnet.prototxt"
-WEIGHTS_FILE = "models/alexnet_iter_2000.caffemodel"
-INPUT_SHAPE = (512, 512)
-
-# Sets up the network
-caffe_network = caffe.Net(MODEL_FILE, WEIGHTS_FILE, caffe.TEST)
+from models import get_model_by_name
 
 
-def compute_score(img):
-    # Resize and
-    sample_images = []
-    res = img.resize(INPUT_SHAPE, Image.ANTIALIAS)
-    img = np.array(res)
-    img = np.swapaxes(img, 0, 2)
-    sample_images.append(img)
+def compute_score(model_name, image):
+    "Accepts a model name and a PIL image and returns an integer from 0 to 4"
+    model_class = get_model_by_name(model_name)
+    model = model_class()
+    score = model.predict(image)
+    return score
 
-    # Feed data into network
-    im_input = np.array(sample_images)
-    caffe_network.blobs["data"].reshape(*im_input.shape)
-    caffe_network.blobs["data"].data[...] = im_input
-
-    # Inference
-    res = caffe_network.forward()
-    labels = np.argmax(res["loss"], axis=1)
-    return labels[0]

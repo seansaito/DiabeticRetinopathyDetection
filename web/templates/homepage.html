@@ -3,7 +3,7 @@
 {% block content %}
   <div class="homepage">
     <div class="form-area">
-      <h2>Upload an Image</h2>
+      <h2>Check for Diabetic Retinopathy</h2>
       <form action="/detection" method="post" enctype="multipart/form-data">
         <div class="input-group file-input">
           <input type="text" class="form-control" readonly>
@@ -13,7 +13,15 @@
             </span>
           </label>
         </div>
-        <input type="submit" class="btn btn-primary" value="Upload Image" name="submit">
+        <div class="input-group model-input">
+          <select class="form-control" id="model" name="model">
+            <option value="SvmLinear2000">SVM Linear 2000</option>
+            <option value="SvmLinear5000">SVM Linear 5000</option>
+            <option value="SvmPoly2000">SVM Poly 2000</option>
+            <option value="SvmPoly5000">SVM Poly 5000</option>
+          </select>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Check!" name="submit">
       </form>
     </div>
   </div>

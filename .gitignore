@@ -12,6 +12,7 @@ max_cropped_rotated_train_lmdb/
 *.solverstate
 results/*.caffemodel
 results/*.solverstate
+*.pickle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

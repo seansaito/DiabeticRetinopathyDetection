@@ -10,7 +10,7 @@ __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file
 PIC_WIDTH = 384
 PIC_HEIGHT = PIC_WIDTH / 3 * 2
 
-class SvmBase(object):
+class ScikitBase(object):
     def __init__(self):
         self.clf = ske.joblib.load(self._model_file())
 
@@ -25,22 +25,32 @@ class SvmBase(object):
         raise NotImplementedError("Please define a model file for this SVM class")
 
 
-class SvmLinear2000(SvmBase):
+class SvmLinear2000(ScikitBase):
     def _model_file(self):
         return os.path.join(__location__, "data/svmLinear.2000.pickle")
 
 
-class SvmLinear5000(SvmBase):
+class SvmLinear5000(ScikitBase):
     def _model_file(self):
         return os.path.join(__location__, "data/svmLinear.5000.pickle")
 
 
-class SvmPoly2000(SvmBase):
+class SvmPoly2000(ScikitBase):
     def _model_file(self):
         return os.path.join(__location__, "data/svmPoly.2000.pickle")
 
 
-class SvmPoly5000(SvmBase):
+class SvmPoly5000(ScikitBase):
     def _model_file(self):
         return os.path.join(__location__, "data/svmPoly.5000.pickle")
+
+
+class RandomForest(ScikitBase):
+    def _model_file(self):
+        return os.path.join(__location__, "data/randomForest.2000.pickle")
+
+
+class LogisticRegression(ScikitBase):
+    def _model_file(self):
+        return os.path.join(__location__, "data/logRegress.2000.pickle")
 

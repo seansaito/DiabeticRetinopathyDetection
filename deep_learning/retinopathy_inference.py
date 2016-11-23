@@ -93,7 +93,7 @@ np.argmax(res["loss"], axis=1)
 
 # Get the labels for all train images
 labels = {}
-with open("trainLabels.csv", "r") as fp:
+with open("../data/trainLabels.csv", "r") as fp:
     reader = csv.DictReader(fp)
     for row in reader:
         labels[row["image"]] = int(row["level"])
@@ -105,7 +105,7 @@ groups = group_adjacent(fnames, 10)
         
 # Write predictions to a CSV so that we can get the kappa score
 # The CSV has the following columns: image (image name), prediction, label (taken from trainLabels.csv)
-with open("lenet_predictions.csv", "w") as fp:
+with open("../data/lenet_predictions.csv", "w") as fp:
     fieldnames = ["image", "prediction", "label"]
     writer = csv.DictWriter(fp, fieldnames=fieldnames)
     
